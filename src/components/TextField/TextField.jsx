@@ -14,12 +14,12 @@ const useStyles = () => ({
       },
     },
 
-    '& .MuiFilledInput-input': {
-      fontSize: '20px',
+    '& .MuiFilledInput-root:after': {
+      border: 'none',
     },
 
-    '& .css-19mk8g1-MuiInputBase-root-MuiFilledInput-root:after': {
-      border: 'none',
+    '& .MuiFilledInput-input': {
+      fontSize: '20px',
     },
   },
 });

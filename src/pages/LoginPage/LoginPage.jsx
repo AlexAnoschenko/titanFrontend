@@ -13,7 +13,7 @@ const useStyles = () => ({
   loginFormBlock: {
     width: '300px',
     padding: '16px',
-    background: '#2E2E31',
+    background: '#2e2e31d6',
     borderRadius: '16px',
     display: 'flex',
     flexDirection: 'column',
@@ -27,7 +27,7 @@ const LoginPage = () => {
   return (
     <Box sx={classes.root}>
       <Box sx={classes.loginFormBlock}>
-        <Typography align='center' variant='h4'>
+        <Typography align='center' variant='h3'>
           Hello!
         </Typography>
         <CustomTextField label='Login' />
