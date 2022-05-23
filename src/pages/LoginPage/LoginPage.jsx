@@ -1,28 +1,13 @@
+import { useState } from 'react';
 import { Box, Typography } from '@mui/material';
+import CustomButton from 'components/Button/Button';
 
 import CustomTextField from 'components/TextField/TextField';
-
-const useStyles = () => ({
-  root: {
-    width: '100%',
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  loginFormBlock: {
-    width: '300px',
-    padding: '16px',
-    background: '#2e2e31d6',
-    borderRadius: '16px',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '20px',
-  },
-});
+import { useStyles } from './styles';
 
 const LoginPage = () => {
   const classes = useStyles();
+  const [isLogin, setIsLogin] = useState(true);
 
   return (
     <Box sx={classes.root}>
@@ -31,9 +16,18 @@ const LoginPage = () => {
           Hello!
         </Typography>
         <CustomTextField label='Login' />
+        {isLogin ? null : <CustomTextField label='Email' />}
         <CustomTextField label='Password' />
-        <Typography align='center' variant='h7'>
-          Don't have an account? Sign up
+        <CustomButton text={isLogin ? 'Login' : 'Sign up'} />
+        <Typography align='center' variant='h7' sx={classes.boldText}>
+          {isLogin ? "Don't have an account?" : 'Have an account?'}{' '}
+          <Typography
+            variant='h7'
+            sx={classes.singUpText}
+            onClick={() => setIsLogin(!isLogin)}
+          >
+            {isLogin ? 'Sign up!' : 'Log in'}
+          </Typography>
         </Typography>
       </Box>
     </Box>
