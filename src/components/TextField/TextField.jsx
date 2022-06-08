@@ -1,9 +1,9 @@
 import { TextField } from '@mui/material';
 
-const useStyles = () => ({
+const useStyles = ({ error }) => ({
   root: {
     background: '#e0e0e0',
-    borderRadius: '8px 8px 8px 8px',
+    borderRadius: '8px',
     width: '100%',
 
     '& .MuiInputLabel-root': {
@@ -14,12 +14,20 @@ const useStyles = () => ({
       },
     },
 
-    '& .MuiFilledInput-root:after': {
+    '& .MuiFilledInput-input': {
+      height: '55px',
+      boxSizing: 'border-box',
+      border: error ? '2px solid red' : 'none',
+      borderRadius: '8px',
+      fontSize: '20px',
+    },
+
+    '& .MuiFilledInput-root:before': {
       border: 'none',
     },
 
-    '& .MuiFilledInput-input': {
-      fontSize: '20px',
+    '& .MuiFilledInput-root:after': {
+      border: 'none',
     },
   },
 });
@@ -34,7 +42,7 @@ const CustomTextField = ({
   type,
   size = 'small',
 }) => {
-  const classes = useStyles();
+  const classes = useStyles({ error });
 
   return (
     <TextField
@@ -48,6 +56,7 @@ const CustomTextField = ({
       variant='filled'
       type={type}
       size={size}
+      InputProps={{ disableUnderline: true }}
     />
   );
 };

@@ -21,5 +21,6 @@ export const useStyles = () => ({
   singUpText: {
     fontWeight: 'bold',
     color: '#1976d2',
+    cursor: 'pointer',
   },
 });

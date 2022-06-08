@@ -7,11 +7,11 @@ const useStyles = () => ({
   },
 });
 
-const CustomButton = ({ text }) => {
+const CustomButton = ({ text, type = 'button' }) => {
   const classes = useStyles();
 
   return (
-    <Button variant='contained' sx={classes.root}>
+    <Button variant='contained' sx={classes.root} type={type}>
       {text}
     </Button>
   );

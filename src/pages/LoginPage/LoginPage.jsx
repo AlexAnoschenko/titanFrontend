@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Box, Typography } from '@mui/material';
-import CustomButton from 'components/Button/Button';
 
-import CustomTextField from 'components/TextField/TextField';
 import { useStyles } from './styles';
+import LoginForm from './LoginForm/LoginForm';
+import SingUpForm from './SignUpForm/SignUpForm';
 
 const LoginPage = () => {
   const classes = useStyles();
@@ -15,10 +15,9 @@ const LoginPage = () => {
         <Typography align='center' variant='h3'>
           Hello!
         </Typography>
-        <CustomTextField label='Login' />
-        {isLogin ? null : <CustomTextField label='Email' />}
-        <CustomTextField label='Password' />
-        <CustomButton text={isLogin ? 'Login' : 'Sign up'} />
+
+        {isLogin ? <LoginForm /> : <SingUpForm />}
+
         <Typography align='center' variant='h7' sx={classes.boldText}>
           {isLogin ? "Don't have an account?" : 'Have an account?'}{' '}
           <Typography
